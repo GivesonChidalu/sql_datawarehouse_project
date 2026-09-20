@@ -26,6 +26,9 @@ Data Sources:
 Note:
     The Silver layer contains cleansed, standardized, and validated data
     prepared for downstream analytics and business intelligence.
+
+Usage example:
+    Excute load_silver;
 ================================================================================
 */
 
@@ -462,4 +465,3 @@ BEGIN
     END CATCH
 
 END;
-EXECUTE silver.load_silver;
