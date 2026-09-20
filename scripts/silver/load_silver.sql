@@ -1,3 +1,34 @@
+/*
+================================================================================
+Silver Layer: Data Transformation and Loading Procedure
+================================================================================
+Script Purpose:
+    This stored procedure transforms and loads data from the Bronze layer into
+    the Silver layer of the data warehouse.
+
+    The procedure:
+        - Truncates existing Silver layer tables before each load.
+        - Cleans and standardizes customer, product, sales, and ERP data.
+        - Removes duplicates and handles missing or invalid values.
+        - Standardizes categorical values such as gender, marital status,
+          product lines, and country names.
+        - Converts and validates date fields.
+        - Calculates product validity periods using start and end dates.
+        - Applies data quality rules to sales and pricing information.
+        - Records the duration of each table load and the overall batch.
+        - Handles and reports errors that occur during the transformation
+          and loading process.
+
+Data Sources:
+    - Bronze CRM tables
+    - Bronze ERP tables
+
+Note:
+    The Silver layer contains cleansed, standardized, and validated data
+    prepared for downstream analytics and business intelligence.
+================================================================================
+*/
+
 CREATE OR ALTER PROCEDURE silver.load_silver AS
 BEGIN
     DECLARE 
